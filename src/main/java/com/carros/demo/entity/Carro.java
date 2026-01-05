@@ -1,46 +1,31 @@
 package com.carros.demo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter // Substitui o @Getter e @Setter
+@Setter
+@AllArgsConstructor // Substitui o @AllArgsConstructor e @NoArgsConstructor
+@NoArgsConstructor
+@Entity // Ao importar esse Entity as tabelas serão criadas no banco de dados automaticamente
 public class Carro {
 
+    @Id // Chave primária
+    @GeneratedValue(strategy = GenerationType.IDENTITY)// Mapeamento do objeto
+    private Long id;
     private String nome;
     private String marca;
     private String modelo;
-    private String ano;
+    private Integer anoFabricacao;
 
-    // Getter and Setters dos atributos
-    public String getNome() {
-        return nome;
+    // Get e "Setter" do "id", para poder usar o "id" em outras classe e também setar
+    public void setId(long id) {
+        this.id = id;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    public String getMarca() {
-        return marca;
-    }
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-    public String getModelo() {
-        return modelo;
-    }
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
-    }
-    public String getAno() {
-        return ano;
-    }
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
-
-
-
-
-
-
-
-
-
-
-
 }
